@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Footballers</title>
+</head>
+<body>
+<h1>Best Footballer 2021</h1>
+
+   <h2>{{.Name}}</h2>
+   <h3>{{.League}}</h3>
+   <h4>{{.Country}}</h4>
+    {{$age := .Age}}
+    {{$position := .Position}}
+   <h4>{{$age}}</h4>
+   <h4>{{$position}}</h4>
+</body>
+</html>
