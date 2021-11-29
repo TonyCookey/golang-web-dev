@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Footballers</title>
+</head>
+<body>
+<h1>Best Footballers 2021</h1>
+
+<ul>
+    <h3>Ordered List</h3>
+    {{ range $key, $value := .}}
+        <li>{{$key}} - {{$value}}</li>
+    {{end}}
+</ul>
+</body>
+</html>
