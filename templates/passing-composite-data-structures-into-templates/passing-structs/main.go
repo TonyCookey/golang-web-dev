@@ -28,7 +28,16 @@ func main() {
 		Age:      35,
 		Position: "Striker",
 	}
-	err := templateFile.ExecuteTemplate(os.Stdout, "main.gohtml", bestFootballer)
+	award := struct {
+		AwardName     string
+		Footballer    footballer
+		EventLocation string
+	}{
+		AwardName:     "Ballon D'Or 2021",
+		Footballer:    bestFootballer,
+		EventLocation: "Paris, France",
+	}
+	err := templateFile.ExecuteTemplate(os.Stdout, "main.gohtml", award)
 	if err != nil {
 		log.Fatalln(err)
 	}
