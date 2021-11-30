@@ -21,7 +21,7 @@ func init() {
 	templateFile = template.Must(template.New("").Funcs(funcmap).ParseFiles("main.gohtml"))
 }
 func formatTime(t time.Time) string {
-	return t.Format("01-02-2006")
+	return t.Format("02-01-2006")
 }
 
 func getYear(t time.Time) string {
