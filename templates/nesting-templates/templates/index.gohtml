@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nesting Templates</title>
+</head>
+<body>
+    {{template "header" .Header}}
+    <hr>
+    <p><strong>{{.Body}}</strong></p>
+    <hr>
+    {{template "footer" .Footer}}
+</body>
+</html>
