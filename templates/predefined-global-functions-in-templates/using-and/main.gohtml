@@ -6,12 +6,9 @@
 </head>
 <body>
 <h1>Best Footballer 2021</h1>
-{{if .}}
- <h2>{{index . 2}}</h2>
+{{if and .League .Name}}
+ <h2>{{.}}</h2>
 {{end}}
-{{/* you could use .Field if that field exists
-<h2>{{index .Field 2}}</h2>
-*/}}
 
 </body>
 </html>
