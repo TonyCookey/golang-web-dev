@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Footballers</title>
+</head>
+<body>
+<h1>{{.AwardName}} - {{.EventLocation}}</h1>
+    {{$footballer := .Footballer}}
+   <h2>{{.Footballer.CapitalizeName}}</h2>
+   <h3>{{$footballer.League}}</h3>
+   <h4>{{$footballer.Country}}</h4>
+   <h4>{{$footballer.Age}}</h4>
+   <h4>{{$footballer.Position}}</h4>
+</body>
+</html>
