@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Footballers</title>
+</head>
+<body>
+<h1>Scores using operators</h1>
+
+{{ if gt .FirstScore .SecondScore}}
+    <h4>First Score is Greater</h4>
+{{end}}
+{{ if lt .SecondScore .FirstScore}}
+    <h4>Second Score is less</h4>
+{{end}}
+{{ if eq .FirstScore .FirstScore}}
+    <h4>First Score is Equal</h4>
+{{end}}
+</body>
+</html>
