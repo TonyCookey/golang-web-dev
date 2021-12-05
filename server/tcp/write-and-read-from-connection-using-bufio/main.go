@@ -32,7 +32,7 @@ func handle(connection net.Conn) {
 	for scanner.Scan() {
 		requestLine := scanner.Text()
 		fmt.Println(requestLine)
-		_, err := fmt.Fprintln(connection, "Type something...")
+		_, err := fmt.Fprintln(connection, "type something...")
 		if err != nil {
 			log.Fatalln(err)
 		}
