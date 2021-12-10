@@ -25,46 +25,67 @@ func main() {
 	mux.GET("/user/:name", user)
 	mux.GET("/blog/:category/:article", blogRead)
 	mux.POST("/blog/:category/:article", blogWrite)
-	http.ListenAndServe(":8080", mux)
+	err := http.ListenAndServe(":8080", mux)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
-func test(r http.ResponseWriter, req *http.Request) {
-	fmt.Println("Hello, 世界")
+func test(_ http.ResponseWriter, _ *http.Request) {
+	_, err := fmt.Println("Hello, 世界")
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
-func user(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "USER, %s!\n", ps.ByName("name"))
+func user(w http.ResponseWriter, _ *http.Request, ps httprouter.Params) {
+	_, err := fmt.Fprintf(w, "USER, %s!\n", ps.ByName("name"))
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
 
-func blogRead(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "READ CATEGORY, %s!\n", ps.ByName("category"))
-	fmt.Fprintf(w, "READ ARTICLE, %s!\n", ps.ByName("article"))
+func blogRead(w http.ResponseWriter, _ *http.Request, ps httprouter.Params) {
+	_, err := fmt.Fprintf(w, "READ CATEGORY, %s!\n", ps.ByName("category"))
+	if err != nil {
+		log.Fatalln(err)
+	}
+	_, err = fmt.Fprintf(w, "READ ARTICLE, %s!\n", ps.ByName("article"))
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
 
-func blogWrite(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "WRITE CATEGORY, %s!\n", ps.ByName("category"))
-	fmt.Fprintf(w, "WRITE ARTICLE, %s!\n", ps.ByName("article"))
+func blogWrite(w http.ResponseWriter, _ *http.Request, ps httprouter.Params) {
+	_, err := fmt.Fprintf(w, "WRITE CATEGORY, %s!\n", ps.ByName("category"))
+	if err != nil {
+		log.Fatalln(err)
+	}
+	_, err = fmt.Fprintf(w, "WRITE ARTICLE, %s!\n", ps.ByName("article"))
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
 
-func index(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+func index(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	err := tpl.ExecuteTemplate(w, "index.gohtml", nil)
 	HandleError(w, err)
 }
 
-func about(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+func about(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	err := tpl.ExecuteTemplate(w, "about.gohtml", nil)
 	HandleError(w, err)
 }
 
-func contact(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+func contact(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	err := tpl.ExecuteTemplate(w, "contact.gohtml", nil)
 	HandleError(w, err)
 }
 
-func apply(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+func apply(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	err := tpl.ExecuteTemplate(w, "apply.gohtml", nil)
 	HandleError(w, err)
 }
 
-func applyProcess(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+func applyProcess(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 	err := tpl.ExecuteTemplate(w, "applyProcess.gohtml", nil)
 	HandleError(w, err)
 }
