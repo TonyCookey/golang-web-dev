@@ -14,7 +14,7 @@ func init() {
 }
 func main() {
 
-	http.HandleFunc("/", indexHandler)
+	http.Handle("/", http.HandlerFunc(indexHandler))
 	http.HandleFunc("/about", aboutHandler)
 	http.HandleFunc("/profile", profileHandler)
 	err := http.ListenAndServe(":8080", nil)
