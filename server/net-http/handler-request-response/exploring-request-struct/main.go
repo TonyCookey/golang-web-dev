@@ -30,7 +30,10 @@ func (m hotdog) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		req.Host,
 		req.ContentLength,
 	}
-	tpl.ExecuteTemplate(w, "index.gohtml", data)
+	err = tpl.ExecuteTemplate(w, "index.gohtml", data)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
 
 var tpl *template.Template
@@ -41,5 +44,8 @@ func init() {
 
 func main() {
 	var d hotdog
-	http.ListenAndServe(":8080", d)
+	err := http.ListenAndServe(":8080", d)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
