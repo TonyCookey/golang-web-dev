@@ -25,7 +25,7 @@ func main() {
 	}
 	fmt.Println("You connected to your database.")
 
-	rows, err := db.Query("SELECT * FROM books;")
+	rows, err := db.Query("SELECT * FROM books")
 	if err != nil {
 		panic(err)
 	}
